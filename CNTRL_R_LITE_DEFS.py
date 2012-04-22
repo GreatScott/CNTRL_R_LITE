@@ -9,6 +9,6 @@ C_GREEN = 6
 C_WHITE = 7 # also = 1
 
 # Flash speed. To make a color flash, add its speed value. E.G: SOME_BUTTON_COLOR = C_YELLOW+S_MED
-S_FAST = 6*2
-S_MED = 6*4
-S_SLOW = 6*7
+S_FAST = 6*1
+S_MED = 6*3
+S_SLOW = 6*6

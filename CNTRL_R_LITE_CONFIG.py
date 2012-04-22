@@ -67,18 +67,32 @@ USE_MIXER_CONTROLS = True
 # NOTE: If turned on, this will create a mixer that is the same size as N_TRACKS. If you do something like create a 16x2 clip nav grid in Part 1 - it's OK - you're not obligated to
 # assign knobs/faders for everything.
 
-N_SENDS = 2
+
+# The SEND_ENCODERS assumes the format: 
+#[<track 1 send 1>,...,<track 1 send N>,<track 2 send 1>,...,<track 2 send N>,......,<track N send N>
+# This MUST be a multiple of N_SENDS in length. This convention is how things will get assigned
+# e.g. if SEND_ENCODERS=[Some Number 1,Some Number 2,Some Number 3], and N_SENDS = 3, and N_TRACKS = 5
+# this will just assign encoders to the sends of the first track. The rest will be unassigned.
+USE_SENDS = True
+N_SENDS_PER_TRACK = 3 # sends per track
+SEND_ENCODERS = [1,2,3,9,10,11,17,18,19,25,26,27] 
+
 USE_MIXER_EQ = False
 USE_MIXER_FILTERS = False
 
-USE_MUTE_BUTTONS = False
+USE_MUTE_BUTTONS = True
 MUTE_BUTTONS = [16,19,26,29] # Refer to http://wiki.lividinstruments.com/wiki/File:CNTRLR_MIDI_Defaults.png.
-MUTE_BUTTON_COLOR = C_YELLOW
+MUTE_BUTTON_ON_COLOR = C_YELLOW
+MUTE_BUTTON_OFF_COLOR = C_OFF
 
-USE_SOLO_BUTTONS = False
+USE_SOLO_BUTTONS = True
 SOLO_BUTTONS = [32,35,42,45]
-SOLO_BUTTON_COLOR = C_CYAN
+SOLO_BUTTON_ON_COLOR = C_CYAN+S_FAST
+SOLO_BUTTON_OFF_COLOR = C_CYAN
 
+# VOLUME_ENCODERS can be any length <= N_TRACKS
+USE_VOLUME_CONTROLS = True
+VOLUME_ENCODERS = [4,12,20,28]
 
 # PART 3: Device Assignments (TO DO)
 
